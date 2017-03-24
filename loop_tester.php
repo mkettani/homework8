@@ -13,7 +13,7 @@
         <input type="hidden" name="action" value="process_scores">
 
         <label>Score 1:</label>
-        <input type="text" name="scores[]"
+        <input type="text" name="scores[]" 
                value="<?php echo htmlspecialchars($scores[0]); ?>"><br>
 
         <label>Score 2:</label>
@@ -31,24 +31,21 @@
         <span><?php echo htmlspecialchars($scores_string); ?></span><br>
 
         <label>Score Total:</label>
-        <span><?php echo $score_total; ?></span><br>
+        <span><?php echo $score_total_f; ?></span><br>
 
         <label>Average Score:</label>
-        <span><?php echo $score_average; ?></span><br>
+        <span><?php echo $score_average_f; ?></span><br>
     </form>
+
     <h2>Process 1000 Die Rolls</h2>
     <form action="." method="post">
         <input type="hidden" name="action" value="process_rolls">
 
         <label>Number to Roll:</label>
         <select name="number_to_roll">
-            <!-- TODO: Use a for loop to display these options ! -->
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
+        <?php for ($i = 1; $i < 7; $i++) : ?>
+            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+        <?php endfor; ?>
         </select><br>
 
         <label>&nbsp;</label>
@@ -59,9 +56,7 @@
 
         <label>Average Rolls:</label>
         <span><?php echo $average_rolls; ?></span><br>
-
     </form>
-
 </main>
 </body>
 </html>
